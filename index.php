@@ -15,7 +15,8 @@ else
 	$ord = 1;
 } 
 
-CODE\Cliente\ListaDeClientes::init();
+//CODE\Cliente\ListaDeClientes::init();
+CODE\Cliente\ListaDeClientes::initPersistent();
 
 if ($ord == '1'){
 	asort(CODE\Cliente\ListaDeClientes::$client_list);

@@ -4,6 +4,7 @@ namespace CODE\Cliente;
 
 use CODE\Cliente\ClientePF;
 use CODE\Cliente\ClientePJ;
+use CODE\Controller\ClientesController;
 
 class ListaDeClientes{
 
@@ -22,6 +23,25 @@ class ListaDeClientes{
                                 '9' => new ClientePF(9,"Luana Piovani","999.222.222-22","Av. Wandyn 2389 - Flores",0),
                                 '10' => new ClientePF(10,"Maysa Carvalho","111.222.222-22","Av. Conte Teles 999 - Aleixo",0)
                             );
+    }
+
+    public static function initPersistent()
+    {
+    	$controller = new ClientesController();
+    	//echo $controller->count();
+    	if ($controller->count() == 0){
+    		$controller->add(new ClientePF(1,"Jaques Moura","385.222.682-15","Av. Parintins 489 - Cachoeirinha",5));
+    		$controller->add(new ClientePF(2,"Lucilana Moura","222.222.222-22","Av. Parintins 489 - Cachoeirinha",5));
+    		$controller->add(new ClientePF(3,"Evelyn Moura","333.222.222-22","Av. Parintins 489 - Cachoeirinha",5));
+    		$controller->add(new ClientePF(4,"Emanuele Moura","444.222.222-22","Av. Parintins 489 - Cachoeirinha",5));
+    		$controller->add(new ClientePF(5,"Kaleb Santos","555.222.222-22","Av. Dois 543 - Centro",0));
+    		$controller->add(new ClientePJ(6,"Fred Krueger Company","93.362.629/0001-62","Av. Dois 543 - Centro",5));
+    		$controller->add(new ClientePF(7,"Jason Mraz","777.222.222-22","Av. Itacolomy 200 - Cidade Nova",0));
+    		$controller->add(new ClientePJ(8,"Jackson Five Company","18.672.681/0001-08","Av. Wakusese 111 - Flores",5));
+    		$controller->add(new ClientePF(9,"Luana Piovani","999.222.222-22","Av. Wandyn 2389 - Flores",0));
+    		$controller->add(new ClientePF(10,"Maysa Carvalho","111.222.222-22","Av. Conte Teles 999 - Aleixo",0));
+    	}
+    	self::$client_list = $controller->retrieveAll();
     }
 
 }

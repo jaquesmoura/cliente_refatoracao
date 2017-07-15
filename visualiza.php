@@ -6,9 +6,15 @@ spl_autoload_register();
 
 $id_cliente = $_GET["id"];
 
-CODE\Cliente\ListaDeClientes::init();
+//CODE\Cliente\ListaDeClientes::init();
 
-$cliente = CODE\Cliente\ListaDeClientes::$client_list[$id_cliente]; 
+//$cliente = CODE\Cliente\ListaDeClientes::$client_list[$id_cliente]; 
+
+use CODE\Controller\ClientesController;
+
+$controller = new ClientesController();
+
+$cliente = $controller->retrieve($id_cliente);
 
 ?>
 
